@@ -50,8 +50,10 @@ const books = [
   },
 ];
 
+//1//
 const longBooks = books.filter((b => b.pages >= 300));
 console.log(longBooks);
 
+//2//
 const longBooksTitles = books.map((b => b.title));
 console.log(longBooksTitles);
