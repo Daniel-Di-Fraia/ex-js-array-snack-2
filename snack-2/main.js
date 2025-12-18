@@ -55,14 +55,22 @@ const availableBooks = books.filter((b => b.available === true));
 console.log(availableBooks);
 
 //2//
-const discountedBooks = availableBooks.map(book => ({
-  ...book,
-  price: parseFloat((parseFloat(book.price) * 0.8).toFixed(2))
-}));
+const discountedBooks = availableBooks.map(book => {
+	const price = parseFloat(book.price.replace( '€',''));
+	const prezzoScontato = (price * 0.8).toFixed(2);
+	return {
+		...book,
+		price: `${prezzoScontato}€`
+	}
+})
 console.log(discountedBooks);
 
 //3//
-const fullPricedBook = discountedBooks.find(b => Number.isInteger(b.price));
+const fullPricedBook = discountedBooks.find(b => {
+	const price = parseFloat(b.price.replace( '€',''));
+	// return price % 1 === 0;
+	return Number.isInteger(price);
+})
 console.log(fullPricedBook);
 
 
