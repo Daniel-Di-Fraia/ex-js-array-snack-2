@@ -57,10 +57,15 @@ console.log(areThereAvailableBooks);
 //2//
 const booksByPrice = [...books].sort((a , b) => parseFloat(a.price) - parseFloat(b.price));
 console.log(booksByPrice);
-// console.log(books)
+
+// const booksByPrice = books.sort((a,b) => {
+// 	const priceA = parseFloat(a.price.replace('€',''));
+// 	const priceB = parseFloat(a.price.replace('€',''));
+// 	return priceA - priceB;
+// })
 
 //3//
-booksByPrice.sort((b) => b.available === true);
+booksByPrice.sort((a,b) => a.available === b.available ? 0 : a.available ? -1 : 1);
 console.log(booksByPrice);
 
 

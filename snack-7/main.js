@@ -51,7 +51,12 @@ const books = [
 //1//
 const tagCounts = books.reduce((acc, curr) => {
   curr.tags.forEach(tag => {
-    acc[tag] = (acc[tag] || 0) + 1;
+    // acc[tag] = (acc[tag] || 0) + 1;
+	if(acc[tag]){
+		acc[tag]++;
+	}else {
+		acc[tag] = 1;
+	}
   });
   return acc;
 }, {});
